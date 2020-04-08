@@ -5,7 +5,7 @@ class Player:
         self.room = starting_point 
 
     def move_to(self, next_direction, all_rooms):
-        invalid_direction_msg = "Sorry, you can't go there."
+        invalid_direction_msg = "Sorry, you can't go there. \n\n"
 
         if self.room == all_rooms['outside']:
             if next_direction == "n":

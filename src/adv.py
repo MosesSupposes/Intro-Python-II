@@ -5,7 +5,7 @@ import sys
 
 # Helpers
 def display_room_info(room):
-    print("You have entered the " + room.name)
+    print("\n" + "You have entered the " + room.name)
     print("\n" + room.description)
 
 

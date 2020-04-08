@@ -47,12 +47,14 @@ player = Player(room['outside'])
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 
+print("You can quit at any time by pressing the 'q' key. \n\n")
+
 while(True):
     print("You have entered the " + player.room.name)
     print("Description: " + player.room.description)
     next_room = input("Choose a direction to travel in [n, e, s, w]: ")
 
-    if next_room == "q": 
+    if next_room.lower() == "q": 
         print("You have died of utter cowardice.")
         sys.exit()
 #

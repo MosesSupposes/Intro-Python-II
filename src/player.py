@@ -5,7 +5,7 @@ import sys
 
 class Player:
     def __init__(self, starting_point):
-        self.room = starting_point 
+        self.current_room = starting_point 
 
     def move_to(self, next_direction, all_rooms):
         def print_invalid_direction():
@@ -14,46 +14,46 @@ class Player:
                 print(invalid_direction_msg)
 
 
-        if self.room == all_rooms['outside']:
+        if self.current_room == all_rooms['outside']:
             if next_direction == "n":
-                self.room = all_rooms['outside'].n_to
+                self.current_room = all_rooms['outside'].n_to
 
             else:
                 print_invalid_direction()
 
-        elif self.room == all_rooms['foyer']:
+        elif self.current_room == all_rooms['foyer']:
             if next_direction == "n":
-                self.room = all_rooms["foyer"].n_to
+                self.current_room = all_rooms["foyer"].n_to
 
             elif next_direction == "e":
-                self.room = all_rooms["foyer"].e_to
+                self.current_room = all_rooms["foyer"].e_to
             
             elif next_direction == "s":
-                self.room = all_rooms["foyer"].s_to
+                self.current_room = all_rooms["foyer"].s_to
             
             else:
                 print_invalid_direction()
 
-        elif self.room == all_rooms["overlook"]:
+        elif self.current_room == all_rooms["overlook"]:
             if next_direction == "s":
-                self.room = all_rooms["overlook"].s_to
+                self.current_room = all_rooms["overlook"].s_to
             
             else: 
                 print_invalid_direction()
                 
-        elif self.room == all_rooms["narrow"]:
+        elif self.current_room == all_rooms["narrow"]:
             if next_direction == "n":
-                self.room = all_rooms["narrow"].n_to
+                self.current_room = all_rooms["narrow"].n_to
             
             elif next_direction == "w":
-                self.room = all_rooms["narrow"].w_to
+                self.current_room = all_rooms["narrow"].w_to
 
             else:
                 print_invalid_direction()
 
-        elif self.room == all_rooms["treasure"]:
+        elif self.current_room == all_rooms["treasure"]:
             if next_direction == "s":
-                self.room = all_rooms["treasure"].s_to  
+                self.current_room = all_rooms["treasure"].s_to  
             
             else:
                 print_invalid_direction()

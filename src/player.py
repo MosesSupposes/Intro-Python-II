@@ -9,10 +9,15 @@ class Player:
         self.inventory = []
 
     def move_to(self, next_direction, all_rooms):
+        next_direction = next_direction.lower()
+
         def print_invalid_direction():
             invalid_direction_msg = "Sorry, you can't go there. \n\n"
-            if (next_direction != "help"):
-                print(invalid_direction_msg)
+            if next_direction == "help" or next_direction == "q":
+                pass
+            else:
+                 print(invalid_direction_msg)
+
 
 
         if self.current_room == all_rooms['outside']:

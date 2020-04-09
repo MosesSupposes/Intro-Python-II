@@ -1,10 +1,14 @@
-from room import Room, all_rooms
-from player import Player
 import sys
 from functools import reduce
 
+from simple_chalk import chalk
+
+from room import Room, all_rooms
+from player import Player
+
 
 # Helpers
+
 def display_room_info(room):
     print("\n" + "You have entered the " + room.name)
     print("\n" + room.description)
@@ -48,8 +52,8 @@ hero = Player(all_rooms['outside'])
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 
+# print("Enter 'help' for directions. \n\n\n")
 print("Enter 'help' for directions. \n\n\n")
-print(parse_item_to_pickup_or_remove("get the big sword"))
 
 while(True):
     display_room_info(hero.current_room)

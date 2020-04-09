@@ -30,7 +30,7 @@ hero = Player(all_rooms['outside'])
 print("Enter 'help' for directions. \n\n\n")
 
 while(True):
-    display_room_info(hero.room)
+    display_room_info(hero.current_room)
     next_room = input("\n\n\nChoose a direction to travel in \n")
     hero.move_to(next_room, all_rooms)
 

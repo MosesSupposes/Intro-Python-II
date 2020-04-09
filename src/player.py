@@ -70,3 +70,6 @@ class Player:
 
     def pickup_item(self, item):
         self.inventory.append(item)
+    
+    def drop_item(self, item):
+        self.inventory.remove(item)

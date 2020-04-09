@@ -1,6 +1,7 @@
 from room import Room, all_rooms
 from player import Player
 import sys
+from functools import reduce
 
 
 # Helpers
@@ -8,7 +9,12 @@ def display_room_info(room):
     print("\n" + "You have entered the " + room.name)
     print("\n" + room.description)
 
-
+def display_available_items(room):
+    if len(room.items) > 0:
+        available_items = reduce(lambda acc, cur: acc + ", " + cur, room.items) 
+        print("\n" + "Available items: " + available_items)
+    else:
+        print("\n " + "Available items: None")
 
 """ 
 TODO: Create a function that determines which available directions the player 
@@ -31,6 +37,7 @@ print("Enter 'help' for directions. \n\n\n")
 
 while(True):
     display_room_info(hero.current_room)
+    display_available_items(hero.current_room)
     next_room = input("\n\n\nChoose a direction to travel in \n")
     hero.move_to(next_room, all_rooms)
 

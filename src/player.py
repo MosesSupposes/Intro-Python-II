@@ -2,6 +2,7 @@
 # currently.
 
 import sys
+from functools import reduce
 
 class Player:
     def __init__(self, starting_point):
@@ -68,8 +69,15 @@ class Player:
             print("Whoops, you fell off a cliff and died.")
             sys.exit()
 
+    def display_inventory(self):
+        print("\n" + "Inventory: " + reduce(lambda acc, cur: acc + ", " + cur, self.inventory))
+
     def pickup_item(self, item):
         self.inventory.append(item)
+        print("\n" + "You picked up a " + item)
+        self.display_inventory()
     
     def drop_item(self, item):
         self.inventory.remove(item)
+        print("\n" + "You dropped a " + item)
+        self.display_inventory()

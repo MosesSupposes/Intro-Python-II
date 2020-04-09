@@ -6,6 +6,7 @@ import sys
 class Player:
     def __init__(self, starting_point):
         self.current_room = starting_point 
+        self.inventory = []
 
     def move_to(self, next_direction, all_rooms):
         def print_invalid_direction():
@@ -61,3 +62,6 @@ class Player:
         else:
             print("Whoops, you fell off a cliff and died.")
             sys.exit()
+
+    def pickup_item(self, item):
+        self.inventory.append(item)

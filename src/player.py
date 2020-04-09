@@ -70,14 +70,29 @@ class Player:
             sys.exit()
 
     def display_inventory(self):
-        print("\n" + "Inventory: " + reduce(lambda acc, cur: acc + ", " + cur, self.inventory))
+        if len(self.inventory) > 0:
+            print("\n" + "Inventory: " + reduce(lambda acc, cur: acc + ", " + cur, self.inventory))
+            
+        else:
+            print("There are no items in your inventory.")
 
     def pickup_item(self, item):
-        self.inventory.append(item)
-        print("\n" + "You picked up a " + item)
-        self.display_inventory()
-    
+        if item not in self.inventory and item in self.current_room.items:
+            self.inventory.append(item)
+            print("\n" + "You picked up a " + item)
+            self.display_inventory()
+
+        elif item not in self.current_room.items:
+            print("There is no " + item + " in the room.")
+
+        else: 
+            print("You already picked up the " + item + ".")
+
     def drop_item(self, item):
-        self.inventory.remove(item)
-        print("\n" + "You dropped a " + item)
-        self.display_inventory()
+        if item in self.inventory:
+            self.inventory.remove(item)
+            print("\n" + "You dropped a " + item + ".")
+            self.display_inventory()
+
+        else:
+            print("\n" + "You don't have a " + item + " in your possession.")

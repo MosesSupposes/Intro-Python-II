@@ -1,8 +1,6 @@
 import sys
 from functools import reduce
 
-from simple_chalk import chalk
-
 from room import Room, all_rooms
 from player import Player
 
@@ -52,7 +50,6 @@ hero = Player(all_rooms['outside'])
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
 
-# print("Enter 'help' for directions. \n\n\n")
 print("Enter 'help' for directions. \n\n\n")
 
 while(True):

@@ -16,7 +16,7 @@ def display_available_items(room):
         available_items = reduce(lambda acc, cur: acc + ", " + cur, room.items) 
         print("\n" + "Available items: " + available_items)
     else:
-        print("\n " + "Available items: None")
+        print("\n" + "Available items: None")
 
 def parse_item_to_pickup_or_remove(input):
     words = input.rsplit(" ")

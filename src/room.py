@@ -2,29 +2,39 @@
 # description attributes.
 
 class Room:
-    def __init__(self, name, description):
-        self.name = name 
-        self.description = description 
+    def __init__(self, **kwargs):
+        self.name = kwargs["name"]
+        self.description = kwargs["description"]
+        self.items = kwargs["items"]
 
 # Declare all the rooms
 
 all_rooms = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+    'outside':  Room(name="Outside Cave Entrance",
+                     description="North of you, the cave mount beckons",
+                     items=["stick", "heavy stone"]),
 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+    'foyer':    Room(name="Foyer", 
+                     description="""Dim light filters in from the south. Dusty
+passages run north and east.""", 
+                     items=["rope", "lit torch"]),
 
-    'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
+    'overlook': Room(name="Grand Overlook", 
+                     description="""A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""",
+                      items=["knight's armour", "shield", "sword", "dagger"]),
 
-    'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+    'narrow':   Room(name="Narrow Passage", 
+                     description="""The narrow passage bends here from west
+to north. The smell of gold permeates the air.""",
+                      items=[]),
 
-    'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
+    'treasure': Room(name="Treasure Chamber", 
+                     description="""You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""",
+                      items=["empty treasure chest"]),
 }
 
 
